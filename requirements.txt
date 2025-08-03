@@ -9,3 +9,5 @@ transformers
 joblib
 python-multipart
 google-auth
+torch
+transformers
