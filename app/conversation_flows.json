@@ -1,0 +1,31 @@
+{
+  "train_schedule": [
+    { "actor": "bot", "message": "Chagua kituo utakachopandia treni" },
+    { "actor": "passenger", "message": "Dar-es-salaam" },
+    { "actor": "bot", "message": "Vizuri, Na utashukia kituo gani?" },
+    { "actor": "passenger", "message": "Dodoma Stendi ya Mkonze." },
+    { "actor": "bot", "message": "Tafadhali chagua tarehe ya kusafiri." },
+    { "actor": "passenger", "message": "Kesho" },
+    {
+      "actor": "bot",
+      "message": "Angalia hapa chini ni Ratiba za Treni za kesho kutokea Dar-es-salaam kwenda Dodoma\n- Express: Departs 6:00 AM | arrives 9:42 AM \n- Royal Express: 8:00 AM | arrives 11:15 AM\n- Ordinary Line: 18:55 PM | arrives 23:01 PM\nJe utahitaji kuweka booking ya ticket au una hitaji maelezo ya ziada?\n1. Book Tiketi\n2. Maelezo ya ziada\n3. Anza upya"
+    }
+  ],
+  "ticket_booking": [
+    { "actor": "passenger", "message": "1" },
+    {
+      "actor": "bot",
+      "message": "Tafadhali chagua aina ya tiketi unayotaka kununua."
+    },
+    { "actor": "passenger", "message": "Express" },
+    {
+      "actor": "bot",
+      "message": "Tafadhali ingiza namba yako ya simu ili tupate kuwasiliana nawe."
+    },
+    { "actor": "passenger", "message": "+255712345678" },
+    {
+      "actor": "bot",
+      "message": "Asante kwa kununua tiketi yako. Tutakutumia ujumbe wa kuthibitisha booking yako."
+    }
+  ]
+}
