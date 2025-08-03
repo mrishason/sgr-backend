@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy
+pandas
+openpyxl
+requests
+scikit-learn
+transformers
+joblib
+python-multipart
+google-auth
