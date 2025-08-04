@@ -1,32 +1,22 @@
-from transformers import pipeline
-import joblib
-import os
+# app/nlp.py
+# NLP Trainer simplified (no HuggingFace pipeline, no heavy PyTorch)
 
-# Question Answering pipeline
-qa_pipeline = pipeline("question-answering", model="distilbert-base-uncased-distilled-squad")
+class IntentTrainer:
+    def __init__(self, db):
+        self.db = db
 
-# Dummy context - replace or move to DB later
-context = """
-SGR trains run between Nairobi and Mombasa.
-Trains depart at 8:00 AM and 3:00 PM daily.
-Tickets can be booked online or at SGR stations.
-Cancellations allowed up to 24 hours before departure.
-First class: 3000 Tsh, Economy: 1000 Tsh.
-"""
+    def predict(self, message: str):
+        """
+        Simple fallback NLP (can be replaced with real ML model later)
+        """
+        text = message.lower()
 
+        # Simple keyword-based classification
+        if "booking" in text or "tiketi" in text:
+            return {"intent_id": None, "response": "Je utahitaji kuweka booking ya ticket au una hitaji maelezo ya ziada?\n1. Book Tiketi\n2. Maelezo ya ziada\n3. Anza upya"}
 
-# Intent classification - load model if trained
-def classify_intent(text: str) -> str:
-    if os.path.exists("intent_model.pkl") and os.path.exists("vectorizer.pkl"):
-        model = joblib.load("intent_model.pkl")
-        vectorizer = joblib.load("vectorizer.pkl")
-        X = vectorizer.transform([text])
-        return model.predict(X)[0]
-    return "General Inquiry"
+        if "msaada" in text or "help" in text:
+            return {"intent_id": None, "response": "Unaweza kuwasiliana na huduma kwa wateja kupitia namba 0800-11-00."}
 
-def answer_question(question: str) -> str:
-    try:
-        result = qa_pipeline(question=question, context=context)
-        return result["answer"] if result["score"] > 0.1 else "Samahani, sijaelewa swali lako."
-    except:
-        return "Samahani, sijaweza kupata jibu kwa sasa."
+        # Default fallback
+        return {"intent_id": None, "response": "Samahani, sijaelewa swali lako."}
